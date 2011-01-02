@@ -1,5 +1,5 @@
 /*
- * jQuery UI Veneer @VERSION
+ * jQuery UI Veneer Version 0.2
  *
  * Copyright (c) 2011 Steven Black (http://stevenblack.com/)
  * Dual licensed under the MIT (MIT-LICENSE.txt)
