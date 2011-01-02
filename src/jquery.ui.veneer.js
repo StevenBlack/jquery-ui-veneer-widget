@@ -5,7 +5,7 @@
  * Dual licensed under the MIT (MIT-LICENSE.txt)
  * and GPL (GPL-LICENSE.txt) licenses.
  *
- * http://xJs.ca/widgets/jquery-ui-veneer-widget
+ * http://xjs.ca/widgets/jquery-ui-veneer-widget
  *
  * Depends:
  *	jquery.ui.core.js
