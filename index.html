@@ -1,0 +1,132 @@
+<!doctype html>  
+
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ --> 
+<!--[if lt IE 7 ]> <html lang="en" class="no-js ie6"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="en" class="no-js ie7"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="en" class="no-js ie8"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+
+  <!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame 
+       Remove this if you use the .htaccess -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <!-- encoding must be specified within the first 512 bytes www.whatwg.org/specs/web-apps/current-work/multipage/semantics.html#charset -->
+
+  <!-- meta element for compatibility mode needs to be before all elements except title & meta msdn.microsoft.com/en-us/library/cc288325(VS.85).aspx --> 
+  <!-- Chrome Frame is only invoked if meta element for compatibility mode is within the first 1K bytes code.google.com/p/chromium/issues/detail?id=23003 -->    
+
+
+  <title>xJS</title>
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!--  Mobile viewport optimized: j.mp/bplateviewport -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Place favicon.ico & apple-touch-icon.png in the root of your domain and delete these references -->
+  <link rel="shortcut icon" href="http://xjs.ca/favicon.ico">
+  <link rel="apple-touch-icon" href="http://xjs.ca/apple-touch-icon.png">
+
+
+  <!-- CSS : implied media="all" -->
+  <link rel="stylesheet" href="http://xjs.ca/css/blueprint/screen.css?v=2">
+
+  <link rel="stylesheet" href="http://xjs.ca/css/style.css?v=2">
+
+  <!-- Uncomment if you are specifically targeting less enabled mobile browsers
+  <link rel="stylesheet" media="handheld" href="css/handheld.css?v=2">  -->
+ 
+  <!-- All JavaScript at the bottom, except for Modernizr which enables HTML5 elements & feature detects -->
+  <script src="http://xjs.ca/js/libs/modernizr-1.6.min.js"></script>
+
+</head>
+
+<body>
+
+  <div id="container" class="container">
+    <header>
+		<div class="prepend-top span-24 last">
+			<div class="span-3">
+				<h1>xJS</h1>
+			</div>
+			<div class="span-8 prepend-top">
+			<div class="span-2">
+				<a href="#">Plugins</a>
+			</div>
+			<div class="span-2">
+				<a href="#">Widgets</a>
+			</div>
+			<div class="span-2">
+				<a href="#">Snippets</a>
+			</div>
+			<div class="span-2 last">
+				<a href="#">About</a>
+			</div>		
+		</div>
+    </header>
+    
+    <div id="main" role="main">
+		<div class="span-24 last">
+			<h2>jquery-ui-veneer-widget</h2>
+			<p><strong>Work in progress</strong>, coming soon.</p>
+			<p>Target date: January 6 2010.</p>
+		</div>
+    </div>
+    
+    <footer>
+
+    </footer>
+  </div> <!--! end of #container -->
+
+
+  <!-- Javascript at the bottom for fast page loading -->
+
+  <!-- Grab Google CDN's jQuery. fall back to local if necessary -->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="js/libs/jquery-1.4.4.js"%3E%3C/script%3E'))</script>
+
+<script>  
+ $(function(){
+  if ( document.domain.toLowerCase().indexOf( "xjs.ca" ) === -1  ) { $( "#container" ).addClass( "showgrid" ); }
+ });  
+
+ </script>
+  <!-- scripts concatenated and minified via ant build script-->
+  <script src="http://xjs.ca/js/plugins.js"></script>
+  <script src="http://xjs.ca/js/script.js"></script>
+  <!-- end concatenated and minified scripts-->
+  
+  
+  <!--[if lt IE 7 ]>
+    <script> 
+      // More information on tackling transparent PNGs for IE goo.gl/mZiyb
+      //fix any <img> or .png_bg background-images
+      $.getScript("js/libs/dd_belatedpng.js",function(){ DD_belatedPNG.fix('img, .png_bg'); });
+    </script>
+  <![endif]-->
+
+  <!-- yui profiler and profileviewer - remove for production -->
+  <script src="http://xjs.ca/js/profiling/yahoo-profiling.min.js"></script>
+  <script src="http://xjs.ca/js/profiling/config.js"></script>
+  <!-- end profiling code -->
+
+
+  <!-- asynchronous google analytics: mathiasbynens.be/notes/async-analytics-snippet 
+       change the UA-XXXXX-X to be your site's ID -->
+  <script>
+  // showgrid
+
+   var _gaq = [['_setAccount', 'UA-212713-19'], ['_trackPageview']];
+   (function(d, t) {
+    var g = d.createElement(t),
+        s = d.getElementsByTagName(t)[0];
+    g.async = true;
+    g.src = ('https:' == location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    s.parentNode.insertBefore(g, s);
+   })(document, 'script');
+
+  </script>
+</body>
+</html>

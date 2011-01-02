@@ -1,0 +1,6 @@
+# jQuery UI MultiSelect Widget
+
+Selectively applies a jQuery-ui veneer to otherwise plain HTML markup.
+
+ThemeRoller-ready.  
+
