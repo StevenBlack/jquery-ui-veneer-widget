@@ -1,0 +1,314 @@
+<!doctype html>
+<html lang="en">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<head>
+<title>Veneer Visual Test : Default</title>
+<link rel="stylesheet" href="http://stevenblack.com/lib/reset.css" />
+<link rel="stylesheet" href="http://stevenblack.com/lib/typography.css" />
+<link rel="stylesheet" href="http://stevenblack.com/lib/grid.css" />
+<link rel="stylesheet" href="../../../themes/base/jquery.ui.all.css" type="text/css">
+<link rel="stylesheet" href="../../../themes/base/jquery.ui.veneer.css" type="text/css">
+<style>
+ body {margin: 0 1.5em;}
+ #tabs { display: none;}
+ section#intro { font-family: Corbel, "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaVu Sans", "Bitstream Vera Sans", "Liberation Sans", Verdana, sans-serif; font-size: 150%}
+ .veneer { width:250px; float:left; margin:1em;}
+ .veneer p, .veneer ul li, .veneer ol li { margin-left: 0.5em; margin-right: 0.5em;}
+ .bottom { margin-bottom: 0;}
+ .top { margin-top: 0;}
+ h1, h2, h3, h4, h5, h6 { color: inherit;}
+ .veneerCode { width:600px; height:11em; float:left; margin: 0 1em 1em 0;}
+</style>
+
+<script type="text/javascript">
+function setupVeneers( codeBox ) {
+	// evaluate the code in the textarea
+	eval( codeBox.val() );
+}
+</script>
+</head>
+
+<body>
+
+<div class="column span-24">
+	<div class="column span-12">
+		<h1>Demo for jquery.ui.veneer.js</h1>
+		<h2>A jQuery-UI widget to pannelize vanilla HTML</h2>
+	</div>
+	
+	<div class="column span-12 last">
+		<p><strong>Author</strong>: Steven Black <a href="mailto:steveb@stevenblack.com">steveb@stevenblack.com</a>  <strong>Last updated</strong>: March 29, 2010.  </p>
+		<p><strong>On GitHub</strong>, a branch of jquery-ui: <a href="http://github.com/StevenBlack/jquery-ui/tree/veneer/ui/">http://github.com/StevenBlack/jquery-ui/tree/veneer/ui/</a> -- Here's <a href="../../../ui/jquery.ui.veneer.js">jquery.ui.veneer.js</a> and <a href="../../../themes/base/jquery.ui.veneer.css">jquery.ui.veneer.css</a>	used on this page.</p>
+	</div>
+</div>
+
+<hr>
+
+
+<p><strong>UI-Veneer</strong> converts generic HTML into panels based either on <strong>containership</strong> or <strong>header hierarchy</strong>.</p>
+
+
+<div class="ui-helper-clearfix" style="margin-bottom:2em;">
+	<div id="switcher" style="margin-right:1em; float:left;"></div>
+	<div id="output"></div>
+</div>
+
+<div id="tabs">
+	<ul>
+		<li><a href="#demo1">Demo #1</a>
+		<li><a href="#demo2">Demo #2</a>	
+		<li><a href="docs.html">Documentation</a>			
+					
+	</ul>
+
+	<div id="demo1" class="ui-helper-clearfix">
+
+<div class="veneerControls ui-helper-clearfix">
+<textarea class="veneerCode ui-helper-clearfix">
+$("#column1").veneer();
+
+$("#column2 h1").veneer( {  } );
+$("#column2 h2").veneer( {collapsible: true, uiBorder: false } );
+
+$("#column3").veneer( { roundCorners: false, title: "A title passed-in via options" } );
+
+$("#column4").veneer( { headers: ["h2"], collapsible: true } );		
+</textarea>			
+<button class="veneerToggle" style="margin-right:1em; float:left;">Toggle these veneers</button>		
+</div>
+		<div id="column1" class="veneer" title="This is from the title attribute">
+			<h1>Section 1</h1>
+			<p>This is a paragraph in that section</p>
+			<ol>
+				<li>List item</li>
+				<li>List item</li>
+				<li>List item</li>
+			</ol>
+			<h2>Subsection 1.1</h2>
+			<p>This is a paragraph in that section</p>
+			<p>This is another paragraph in that section</p>
+			<h2>Subsection 1.2</h2>
+			<p>This is a paragraph in that section</p>
+			<p>This is another paragraph in that section</p>
+		
+		
+			<h1>Section 2</h1>
+			<p>This is a paragraph in that section</p>
+			<ul>
+				<li>List item</li>
+				<li>List item</li>
+				<li>List item</li>
+			</ul>
+			<h2>Subsection 2.1</h2>
+			<p>This is a paragraph in that section</p>
+			<p>This is another paragraph in that section</p>
+			<h2>Subsection 2.2</h2>
+			<p>This is a paragraph in that section</p>
+			<p>This is another paragraph in that section</p>
+		</div>
+		
+		<div id="column2" class="veneer" >
+
+			
+			<p>Introductory text paragraph.</p>
+			<h1>Section 3</h1>
+			<p>This is a paragraph in that section</p>
+			<ol>
+				<li>List item</li>
+				<li>List item</li>
+				<li>List item</li>
+			</ol>
+			<h2>Subsection 3.1</h2>
+			<p>This is a paragraph in that section</p>
+			<p>This is another paragraph in that section</p>
+			<h2>Subsection 3.2</h2>
+			<p>This is a paragraph in that section</p>
+			<p>This is another paragraph in that section</p>
+		
+		
+			<h1>Section 4</h1>
+			<p>This is a paragraph in that section</p>
+			<ul>
+				<li>List item</li>
+				<li>List item</li>
+				<li>List item</li>
+			</ul>
+			<h2>Subsection 4.1</h2>
+			<p>This is a paragraph in that section</p>
+			<p>This is another paragraph in that section</p>
+			<h2>Subsection 4.2</h2>
+			<p>This is a paragraph in that section</p>
+			<p>This is another paragraph in that section</p>
+		</div>
+		
+		<div id="column3" class="veneer" >
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris fringilla sapien vel. </p>
+			<h1>Section 4</h1>
+			<p>This is a paragraph in that section</p>
+			<ol>
+				<li>List item</li>
+				<li>List item</li>
+				<li>List item</li>
+			</ol>
+			<h2>Subsection 4.1</h2>
+			<p>This is a paragraph in that section</p>
+			<p>This is another paragraph in that section</p>
+			<h2>Subsection 4.2</h2>
+			<p>This is a paragraph in that section</p>
+			<p>This is another paragraph in that section</p>
+		
+		
+			<h1>Section 5</h1>
+			<p>This is a paragraph in that section</p>
+			<ul>
+				<li>List item</li>
+				<li>List item</li>
+				<li>List item</li>
+			</ul>
+			<h2>Subsection 5.1</h2>
+			<p>This is a paragraph in that section</p>
+			<p>This is another paragraph in that section</p>
+			<h2>Subsection 5.2</h2>
+			<p>This is a paragraph in that section</p>
+			<p>This is another paragraph in that section</p>
+		</div>
+		
+		<div id="column4" class="veneer" >
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris fringilla sapien vel. </p>
+			<h1>Section 7</h1>
+			<p>This is a paragraph in that section</p>
+			<ol>
+				<li>List item</li>
+				<li>List item</li>
+				<li>List item</li>
+			</ol>
+			<h2>Subsection 7.1</h2>
+			<p>This is a paragraph in that section</p>
+			<p>This is another paragraph in that section</p>
+			<h2>Subsection 7.2</h2>
+			<p>This is a paragraph in that section</p>
+			<p>This is another paragraph in that section</p>
+		
+		
+			<h1>Section 8</h1>
+			<p>This is a paragraph in that section</p>
+			<ul>
+				<li>List item</li>
+				<li>List item</li>
+				<li>List item</li>
+			</ul>
+			<h2>Subsection 8.1</h2>
+			<p>This is a paragraph in that section</p>
+			<p>This is another paragraph in that section</p>
+			<h2>Subsection 8.2</h2>
+			<p>This is a paragraph in that section</p>
+			<p>This is another paragraph in that section</p>
+		</div>
+	</div>
+
+	<div id="demo2" class="ui-helper-clearfix">	
+		<div class="ui-helper-clearfix">		
+			<textarea class="veneerCode ui-helper-clearfix">
+$("#demo2 h1").veneer(  );
+$("#demo2 h2").veneer( { collapsible: true } );
+$("#demo2 h3").veneer( { collapsible: true, collapsed: true } );
+			</textarea>			
+			<button class="veneerToggle" style="margin-right:1em; float:left;">Toggle these veneers</button>				
+		</div>		
+		<h1>This is text in an H1 tag</h1>
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut nunc magna, sodales eu aliquam a, gravida at ipsum. Donec porta, tellus eget suscipit pretium, mauris dui consequat felis, quis facilisis ligula ligula nec ligula. Proin non purus dolor. Cras in mauris tellus, quis volutpat elit. Maecenas ut magna arcu. Nulla quis posuere nisl. Maecenas in mi risus. Nam placerat blandit dolor ut dapibus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam sollicitudin ornare neque non vulputate. Aenean et enim lorem, in iaculis neque. Vestibulum blandit pellentesque leo ac sodales. Donec pharetra nulla et augue tempus lacinia. Suspendisse turpis tortor, placerat eu pulvinar nec, viverra sed justo. Curabitur molestie libero ac justo mattis euismod. Curabitur hendrerit justo non sem porta ac malesuada risus mattis. Vivamus sollicitudin congue malesuada. In eros lorem, tempor mollis posuere quis, varius vel nisi. Duis elementum posuere tortor, vitae congue arcu venenatis quis. Suspendisse ut mi metus.</p>
+		<h2>This is text in an H2 tag</h2>		
+		<p>Vestibulum congue viverra mi ac scelerisque. Donec pharetra, sapien quis scelerisque semper, eros dolor consectetur arcu, ac viverra odio diam sed eros. Curabitur scelerisque placerat tempus. Proin ac mi diam. Aliquam at faucibus ante. Pellentesque volutpat ullamcorper purus, nec pretium nunc placerat eget. Pellentesque at auctor velit. Praesent non justo nisl, vel mattis lorem. Mauris nunc tortor, faucibus a iaculis malesuada, sollicitudin ac elit. Nulla scelerisque auctor auctor. Nam id magna sapien, sit amet dapibus purus. Donec in interdum velit. Phasellus sit amet felis est, id volutpat arcu. Morbi dictum neque eu nulla lobortis et volutpat erat volutpat. Aenean adipiscing, ligula at ullamcorper convallis, sem turpis sodales augue, eu adipiscing lectus elit eu libero. In volutpat mauris eu orci elementum ultricies.</p>
+		<h3>This is text in an H3 tag</h3>
+		<pre> module Foo
+		   module Base
+		     class Abstract
+		       attr_reader :name
+		     end
+		     def Base.new( name )
+		       concrete_class = const_get( name )
+		       concrete_class.new
+		     end
+		     class Bar &lt; Abstract
+		       def initialize; @name='--BAR--'; end
+		     end
+		     class Baz &lt; Abstract
+		       def initialize; @name='--BAZ--'; end
+		     end
+		   end
+		 end
+		# Try it out...
+		puts Foo::Base.new('Bar').name
+		</pre>
+		<p>Output:</p>
+		<pre><code>##BAR##</code></pre>
+		<h3>This is yet more text in an H3 tag</h3>
+		<h4>This is text in an H4 tag</h4>
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nisl ligula, aliquam nec porta id. </p>
+		<h3>H3 tag again</h3>
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam fermentum erat quis risus condimentum tincidunt. Vivamus at turpis in orci ullamcorper mattis a id ligula. Aliquam placerat convallis nisl, sed lobortis tortor lacinia eget. Nulla sodales pellentesque orci sit amet auctor. Phasellus ipsum libero, luctus id scelerisque at, hendrerit a sem. Aenean vitae augue magna. Mauris eleifend, elit sed sollicitudin semper, nisl erat posuere massa, ut sollicitudin ipsum diam vel enim. Fusce lectus nulla, mollis sed lacinia nec, porttitor mattis lorem. Sed elementum leo rutrum urna sodales ultricies. Aenean nec nisi neque, quis suscipit dui. Nam neque leo, porta tincidunt vehicula vitae, tempor eget dui. Sed massa turpis, iaculis vel tincidunt id, vehicula eu nunc. </p>
+
+	</div>
+
+</div>
+
+<script type="text/javascript" src="../../../jquery-1.4.2.js"></script>
+<script type="text/javascript" src="../../../ui/jquery.ui.core.js"></script>
+<script type="text/javascript" src="../../../ui/jquery.ui.widget.js"></script>
+<script type="text/javascript" src="../../../ui/jquery.ui.tabs.js"></script>
+<script type="text/javascript" src="../../../ui/jquery.ui.veneer.js"></script>
+<script type="text/javascript" src="../../../ui/jquery.ui.button.js"></script>  
+<script type="text/javascript" src="jquery.ui-themeswitcher.js"></script>
+<script type="text/javascript">
+$(function() {
+
+	$("#tabs").tabs().fadeIn( 800 );
+
+	$(".veneerToggle").each( function() {
+		var tog= $( this ), codeBox= tog.prev();
+		tog.toggle( 
+			function () { 
+				setupVeneers( codeBox ); 
+				numElements();			
+			},
+			function() { 
+				$(":ui-veneer", $(this).closest(".ui-tabs-panel") ).veneer( "destroy" );
+				numElements();				
+			}
+		);
+	});
+	
+	$("button").button();
+
+});
+
+// Display the number of elements on the page -- looking for "leaks" caused 
+// by items missed in the destroy() method.
+function numElements() {
+	// display the aggregate number of elements on the page.
+	var op = $("#output");
+	if ( ! op.children().length ) {
+		$("<strong>Element counts: </strong> starting with: ").appendTo( op );
+	}
+	op.append( $("*").length+ " elements / ");
+}
+
+</script>
+
+<script type="text/javascript"> 
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-212713-3']);
+  _gaq.push(['_trackPageview']);
+ 
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ga);
+  })();
+
+</script> 
+
+</body>
+</html>
+

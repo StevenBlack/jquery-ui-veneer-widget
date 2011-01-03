@@ -1,0 +1,205 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>Untitled 1</title>
+</head>
+
+<body>
+
+<script type="text/javascript">
+$( function() {
+    $("head").append("<link>");
+    css = $("head").children(":last");
+    css.attr({
+      rel:  "stylesheet",
+      type: "text/css",
+      href: "docs.css"
+    });
+
+    $( "#widget-docs" ).tabs().find( "div" ).addClass( "ui-helper-clearfix" );
+    // $( "#widget-docs div").addClass( "ui-helper-clearfix" )
+	$( ".option-header, .event-header, .method-header" ).click( function(){ 
+		$( this ).siblings().toggle().end().find("span").toggleClass("ui-icon-triangle-1-e").toggleClass("ui-icon-triangle-1-s"); 
+		return false;
+	}).css("cursor","pointer").siblings().hide();    
+});
+</script>
+<h2>Veneer widget documentation</h2>
+<div class="UIAPIPlugin" id="widget-docs">
+  <ul>
+    <li><a href="#overview">Overview </a></li>
+    <li><a href="#options">Options </a></li>
+    <li><a href="#events">Events </a></li>
+    <li><a href="#methods">Methods </a></li>
+  </ul>
+
+  <div id="overview">
+  <h2 class="top-header">Overview</h2>
+  <div id="overview-main">
+    <p>Overview:</p>
+		<div class="column span-24 last">	
+			<div class="column span-8">
+				<h2>Problem</h2>
+				You have HTML that you want to decorate and ameliorate with jQuery-ui for viewing in a web browser.</p>
+			</div>
+			
+			<div class="column span-8">
+				<h2>You want to...</h2>
+				<ul class="top">
+					<li>...keep your content generic,</li>	
+					<li>...avoid "tag soup",</li>
+					<li>...benefit from jquery-ui goodness.</li>
+				</ul>	
+			</div>
+			<div class="column span-8 last">
+				<h2>Illustrated here</h2>
+				Leverage the standard &lt;h1&gt;, &lt;h2&gt;, &lt;h3&gt;... tags that already exist in your content as markers with which to infer implicit, hierarchical containership.</p>
+			</div>
+		</div>
+
+  </div>
+</div>
+
+  <div id="options">
+    <h2 class="top-header">Options </h2>
+    <ul class="options-list">
+      <li class="option" id="option-disabled">
+      <div class="option-header">
+        <h3 class="option-name"><span class="ui-icon ui-icon-triangle-1-e" style=""></span><a href="#option-disabled">disabled</a></h3>
+        <dl>
+          <dt class="option-type-label">Type:</dt>
+          <dd class="option-type">Boolean</dd>
+          <dt class="option-default-label">Default:</dt>
+          <dd class="option-default">false</dd>
+        </dl>
+      </div>
+      <div class="option-description">
+        <p>Disables (true) or enables (false) the veneer interactions. Can be set when initialising (first creating) the veneer, or thereafter by changing the option.</p>
+      </div>
+      <div class="option-examples">
+        <h4>Code examples</h4>
+        <dl class="option-examples-list">
+          <dt>Initialize a veneer with the <code>disabled</code> option specified. </dt>
+          <dd>
+          <pre><code>$( &quot;.selector&quot; ).veneer( { disabled: true } );</code></pre>
+          </dd>
+          <dt>Get or set the <code>disabled</code> option, after init. </dt>
+          <dd>
+          <pre><code>//getter
+var disabled = $( &quot;.selector&quot; ).veneer( &quot;option&quot;, &quot;disabled&quot; );
+//setter
+$( &quot;.selector&quot; ).veneer( &quot;option&quot;, &quot;disabled&quot;, true );</code></pre>
+          </dd>
+        </dl>
+      </div>
+      </li>
+      <li class="option" id="option-icons">
+      <div class="option-header">
+        <h3 class="option-name"><span class="ui-icon ui-icon-triangle-1-e" style=""></span><a href="#option-icons">icons</a></h3>
+        <dl>
+          <dt class="option-type-label">Type:</dt>
+          <dd class="option-type">Object</dd>
+          <dt class="option-default-label">Default:</dt>
+          <dd class="option-default">{ &#39;header&#39;: &#39;ui-icon-triangle-1-e&#39;, &#39;headerSelected&#39;: &#39;ui-icon-triangle-1-s&#39; }</dd>
+        </dl>
+      </div>
+      <div class="option-description">
+        <p>Icons to use for headers. Icons may be specified for &#39;header&#39; and &#39;headerSelected&#39;, and we recommend using the icons native to the jQuery UI CSS Framework manipulated by <a href="http://www.themeroller.com" class="external text" title="http://www.themeroller.com">jQuery UI ThemeRoller</a></p>
+      </div>
+      <div class="option-examples">
+        <h4>Code examples</h4>
+        <dl class="option-examples-list">
+          <dt>Initialize a with the <code>icons</code> option specified. </dt>
+          <dd>
+          <pre><code>$( &quot;.selector&quot; ).( { icons: { &#39;collapsed&#39;: &#39;ui-icon-plus&#39;, &#39;open&#39;: &#39;ui-icon-minus&#39; } } );</code></pre>
+          </dd>
+          <dt>Get or set the <code>icons</code> option, after init. </dt>
+          <dd>
+          <pre><code>//getter
+var icons = $( &quot;.selector&quot; ).( &quot;option&quot;, &quot;icons&quot; );
+//setter
+$( &quot;.selector&quot; ).( &quot;option&quot;, &quot;icons&quot;, { &#39;header&#39;: &#39;ui-icon-plus&#39;, &#39;headerSelected&#39;: &#39;ui-icon-minus&#39; } );</code></pre>
+          </dd>
+        </dl>
+      </div>
+      </li>
+    </ul>
+  </div>
+  <div id="events">
+    <h2 class="top-header">Events </h2>
+    <ul class="events-list">
+  
+    </ul>
+  </div>
+  <div id="methods">
+    <h2 class="top-header">Methods </h2>
+    <ul class="methods-list">
+      <li class="method" id="method-destroy">
+      <div class="method-header">
+        <h3 class="method-name"><span class="ui-icon ui-icon-triangle-1-e" style=""></span><a href="#method-destroy">destroy </a></h3>
+        <dl>
+          <dt class="method-signature-label">Signature: </dt>
+          <dd class="method-signature">.( &quot;destroy&quot; ) </dd>
+        </dl>
+      </div>
+      <div class="method-description">
+        <p>Remove the  functionality completely. This will return the element back to its pre-init state. </p>
+      </div>
+      </li>
+      <li class="method" id="method-disable">
+      <div class="method-header">
+        <h3 class="method-name"><span class="ui-icon ui-icon-triangle-1-e" style=""></span><a href="#method-disable">disable </a></h3>
+        <dl>
+          <dt class="method-signature-label">Signature: </dt>
+          <dd class="method-signature">.( &quot;disable&quot; ) </dd>
+        </dl>
+      </div>
+      <div class="method-description">
+        <p>Disable the veneer </p>
+      </div>
+      </li>
+      <li class="method" id="method-enable">
+      <div class="method-header">
+        <h3 class="method-name"><span class="ui-icon ui-icon-triangle-1-e" style=""></span><a href="#method-enable">enable </a></h3>
+        <dl>
+          <dt class="method-signature-label">Signature: </dt>
+          <dd class="method-signature">.( &quot;enable&quot; ) </dd>
+        </dl>
+      </div>
+      <div class="method-description">
+        <p>Enable the veneer </p>
+      </div>
+      </li>
+      <li class="method" id="method-option">
+      <div class="method-header">
+        <h3 class="method-name"><span class="ui-icon ui-icon-triangle-1-e" style=""></span><a href="#method-option">option </a></h3>
+        <dl>
+          <dt class="method-signature-label">Signature: </dt>
+          <dd class="method-signature">.( &quot;option&quot; , optionName , <span class="optional">[ </span>value <span class="optional">] </span>) </dd>
+        </dl>
+      </div>
+      <div class="method-description">
+        <p>Get or set any  option. If no value is specified, will act as a getter. </p>
+      </div>
+      </li>
+      <li class="method" id="method-widget">
+      <div class="method-header">
+        <h3 class="method-name"><span class="ui-icon ui-icon-triangle-1-e" style=""></span><a href="#method-widget">widget </a></h3>
+        <dl>
+          <dt class="method-signature-label">Signature: </dt>
+          <dd class="method-signature">.( &quot;widget&quot; ) </dd>
+        </dl>
+      </div>
+      <div class="method-description">
+        <p>Returns the .ui-veneer element. </p>
+      </div>
+      </li>
+     </ul>
+  </div>
+</div>
+
+
+</body>
+</html>
+
