@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>jQuery Veneer Widget Demo</title>
+<link rel="stylesheet" type="text/css" href="../src/jquery.veneer.css" />
+<link rel="stylesheet" type="text/css" href="assets/style.css" />
+<link rel="stylesheet" type="text/css" href="assets/prettify.css" />
+<style>
+ body {margin: 0 1.5em;}
+ section#intro { font-family: Corbel, "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaVu Sans", "Bitstream Vera Sans", "Liberation Sans", Verdana, sans-serif; font-size: 150%}
+ .veneer { width:250px; float:left; margin:1em;}
+ .veneer p, .veneer ul li, .veneer ol li { margin-left: 0.5em; margin-right: 0.5em;}
+ .bottom { margin-bottom: 0;}
+ .top { margin-top: 0;}
+ h1, h2, h3, h4, h5, h6 { color: inherit;}
+ .veneerCode { width:500px; height:6em; float:left; margin: 0 1em 1em 0;}
+</style>
+
+<link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/ui-lightness/jquery-ui.css" />
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1/jquery-ui.min.js"></script>
+<script type="text/javascript" src="assets/prettify.js"></script>
+<script type="text/javascript" src="../src/jquery.ui.veneer.js"></script>
+<script type="text/javascript">
+function setupVeneers( codeBox ) {
+	// evaluate the code in the textarea
+	eval( codeBox.val() );
+}
+</script>
+</head>
+<body id="test" onload="prettyPrint();">
+
+<h2>Basic Demo</h2>
+
+<div class="veneerControls ui-helper-clearfix">
+<textarea class="veneerCode ui-helper-clearfix">
+$("#column1").veneer();
+$("#column2 h1").veneer( {  } );
+$("#column2 h2").veneer( {collapsible: true, uiBorder: false } );	
+</textarea>			
+<button class="veneerToggle" style="margin-right:1em; float:left;">Toggle these veneers</button>		
+</div>
+
+	<div id="column1" class="veneer" title="This is from the title attribute">
+		<h1>Section 1</h1>
+		<p>This is a paragraph in that section</p>
+		<ol>
+			<li>List item</li>
+			<li>List item</li>
+			<li>List item</li>
+		</ol>
+		<h2>Subsection 1.1</h2>
+		<p>This is a paragraph in that section</p>
+		<p>This is another paragraph in that section</p>
+		<h2>Subsection 1.2</h2>
+		<p>This is a paragraph in that section</p>
+		<p>This is another paragraph in that section</p>
+	
+	
+		<h1>Section 2</h1>
+		<p>This is a paragraph in that section</p>
+		<ul>
+			<li>List item</li>
+			<li>List item</li>
+			<li>List item</li>
+		</ul>
+		<h2>Subsection 2.1</h2>
+		<p>This is a paragraph in that section</p>
+		<p>This is another paragraph in that section</p>
+		<h2>Subsection 2.2</h2>
+		<p>This is a paragraph in that section</p>
+		<p>This is another paragraph in that section</p>
+	</div>
+	
+	<div id="column2" class="veneer" >
+		<p>Introductory text paragraph.</p>
+		<h1>Section 3</h1>
+		<p>This is a paragraph in that section</p>
+		<ol>
+			<li>List item</li>
+			<li>List item</li>
+			<li>List item</li>
+		</ol>
+		<h2>Subsection 3.1</h2>
+		<p>This is a paragraph in that section</p>
+		<p>This is another paragraph in that section</p>
+		<h2>Subsection 3.2</h2>
+		<p>This is a paragraph in that section</p>
+		<p>This is another paragraph in that section</p>
+	
+	
+		<h1>Section 4</h1>
+		<p>This is a paragraph in that section</p>
+		<ul>
+			<li>List item</li>
+			<li>List item</li>
+			<li>List item</li>
+		</ul>
+		<h2>Subsection 4.1</h2>
+		<p>This is a paragraph in that section</p>
+		<p>This is another paragraph in that section</p>
+		<h2>Subsection 4.2</h2>
+		<p>This is a paragraph in that section</p>
+		<p>This is another paragraph in that section</p>
+	</div>
+</div>
+<script type="text/javascript">
+$(function() {
+
+	$("#tabs").tabs().fadeIn( 800 );
+
+	$(".veneerToggle").each( function() {
+		var tog= $( this ), codeBox= tog.prev();
+		tog.toggle( 
+			function () { 
+				setupVeneers( codeBox ); 
+				numElements();			
+			},
+			function() { 
+				$(":ui-veneer", $(this).closest(".ui-tabs-panel") ).veneer( "destroy" );
+				numElements();				
+			}
+		);
+	});
+	
+	$("button").button();
+
+});
+
+// Display the number of elements on the page -- looking for "leaks" caused 
+// by items missed in the destroy() method.
+function numElements() {
+	// display the aggregate number of elements on the page.
+	var op = $("#output");
+	if ( ! op.children().length ) {
+		$("<strong>Element counts: </strong> starting with: ").appendTo( op );
+	}
+	op.append( $("*").length+ " elements / ");
+}
+
+</script>
+</body>
+</html>
