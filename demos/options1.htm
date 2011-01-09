@@ -7,7 +7,6 @@
 <link rel="stylesheet" type="text/css" href="assets/style.css" />
 <link rel="stylesheet" type="text/css" href="assets/prettify.css" />
 
-
 <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/ui-lightness/jquery-ui.css" />
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1/jquery-ui.min.js"></script>
@@ -22,13 +21,13 @@ function setupVeneers( codeBox ) {
 </head>
 <body id="test" onload="prettyPrint();">
 
-<h2 class="demoTitle">Very Basic Demo</h2>
-<p class="notice">This demo wraps container, in this case the demo's outer container, in a themeable container.</p>
+<h2 class="demoTitle">Veneer Level-1 Headings</h2>
+<p class="notice">This demo wraps vanilla content in a themeable container, and highlights H1 elememts.</p>
 
 <div class="veneerControls ui-helper-clearfix clear">
 	<strong>Veneer code:</strong>
 	<textarea class="veneerCode ui-helper-clearfix">
-$("#target").veneer();	
+$("h1").veneer();	
 	</textarea>				
 	<div id="output" class="clear"></div>
 </div>
@@ -42,7 +41,7 @@ $(function() {
 	
 	// Purely for ease of demo maintenance, load the common demo elements to be veneered.
 	// Upon completion, as a point of information, display the initial number of DOM elements by calling numElements()
-	$("#target").load("textToVeneer.htm", numelEments);
+	$("#target").load("textToVeneer.htm", numElements );
 	
 	// Set-up the Toggle
 	$(".veneerToggle").each( function() {
@@ -59,8 +58,8 @@ $(function() {
 		);
 	});
 	
-	// 
-	numElements();
+	// As a poinyt of information, display the initial number of DOM elements
+	
 });
 
 // Display the number of elements on the page -- looking for "leaks" caused 
