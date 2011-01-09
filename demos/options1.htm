@@ -10,6 +10,7 @@
 <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/ui-lightness/jquery-ui.css" />
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1/jquery-ui.min.js"></script>
+<script type="text/javascript" src="assets/jquery.ui-themeswitcher.js"></script>
 <script type="text/javascript" src="assets/prettify.js"></script>
 <script type="text/javascript" src="../src/jquery.ui.veneer.js"></script>
 <script type="text/javascript">
@@ -25,20 +26,26 @@ function setupVeneers( codeBox ) {
 <p class="notice">This demo wraps vanilla content in a themeable container, and highlights H1 elememts.</p>
 
 <div class="veneerControls ui-helper-clearfix clear">
+	<div class="ui-helper-clearfix">
+		<div id="switcher" style="margin-right:1em; float:left;"></div>
+		<div id="output"></div>
+	</div>
 	<strong>Veneer code:</strong>
 	<textarea class="veneerCode ui-helper-clearfix">
 $("h1").veneer();	
 	</textarea>				
 	<div id="output" class="clear"></div>
 </div>
+
 <button class="veneerToggle">Toggle veneers</button>
+
 
 <div id="target" class="veneer" title="This is from the title attribute"></div>
 
 <script type="text/javascript">
 $(function() {
 	$("button").button();
-	
+	$("#switcher").themeswitcher({ })
 	// Purely for ease of demo maintenance, load the common demo elements to be veneered.
 	// Upon completion, as a point of information, display the initial number of DOM elements by calling numElements()
 	$("#target").load("textToVeneer.htm", numElements );

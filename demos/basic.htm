@@ -11,6 +11,7 @@
 <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/ui-lightness/jquery-ui.css" />
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1/jquery-ui.min.js"></script>
+<script type="text/javascript" src="assets/jquery.ui-themeswitcher.js"></script>
 <script type="text/javascript" src="assets/prettify.js"></script>
 <script type="text/javascript" src="../src/jquery.ui.veneer.js"></script>
 <script type="text/javascript">
@@ -26,6 +27,10 @@ function setupVeneers( codeBox ) {
 <p class="notice">This demo wraps container, in this case the demo's outer container, in a themeable container.</p>
 
 <div class="veneerControls ui-helper-clearfix clear">
+	<div class="ui-helper-clearfix">
+		<div id="switcher" style="margin-right:1em; float:left;"></div>
+		<div id="output"></div>
+	</div>	
 	<strong>Veneer code:</strong>
 	<textarea class="veneerCode ui-helper-clearfix">
 $("#target").veneer();	
@@ -39,10 +44,10 @@ $("#target").veneer();
 <script type="text/javascript">
 $(function() {
 	$("button").button();
-	
+	$("#switcher").themeswitcher({ })	
 	// Purely for ease of demo maintenance, load the common demo elements to be veneered.
 	// Upon completion, as a point of information, display the initial number of DOM elements by calling numElements()
-	$("#target").load("textToVeneer.htm", numelEments);
+	$("#target").load("textToVeneer.htm", numElements);
 	
 	// Set-up the Toggle
 	$(".veneerToggle").each( function() {
@@ -58,9 +63,6 @@ $(function() {
 			}
 		);
 	});
-	
-	// 
-	numElements();
 });
 
 // Display the number of elements on the page -- looking for "leaks" caused 
