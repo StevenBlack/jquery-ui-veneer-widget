@@ -18,9 +18,9 @@
   <!-- Chrome Frame is only invoked if meta element for compatibility mode is within the first 1K bytes code.google.com/p/chromium/issues/detail?id=23003 -->
 
 
-  <title>xJS</title>
-  <meta name="description" content="">
-  <meta name="author" content="">
+  <title>jQuery-UI Veneer Widget -- xJS</title>
+  <meta name="description" content="jQuery-UI widget">
+  <meta name="author" content="Steven Black">
 
   <!--  Mobile viewport optimized: j.mp/bplateviewport -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -48,7 +48,7 @@
     <header id="commonHeader">
 		<div class="prepend-top span-24 last">
 			<div class="span-3">
-				<h1>xJS</h1>
+				<h1>xJs</h1>
 			</div>
 			<div class="span-8 prepend-top">
 				<div class="span-2">
@@ -69,9 +69,17 @@
 
     <div id="main" role="main">
 		<div class="span-24 last">
+			<div class="span-12">
 			<h2>jquery-ui-veneer-widget</h2>
-			<p><strong>Work in progress</strong>, coming soon.</p>
-			<p>Target date: January 6 2010.</p>
+			</div>
+			<div class="span-12 last">
+				<div class="prepend-4 span-2"><a href="http://jquery.com" title=""><img src="http://xjs.ca/images/jquery.png" alt="" width="48px" height="48px"" /></a></div>
+				<div class="span-2"><a href="http://jqueryui.com" title=""><img src="http://xjs.ca/images/jqueryui.png" alt="" width="48px" height="48px"" /></a></div></div>
+			</div>
+			<p>Veneer is a jquery-ui widget that takes vanilla HTML and allows you to inject jquery-ui goodness while keeping your content free of tag-soup.  Veneer can use header tags to infer hierarchichy without any pre-existing div tags.</p>
+			<button class="span-3">Demo</button><button class="span-3">Download</button>
+			<a href="https://github.com/StevenBlack/jquery-ui-veneer-widget" title=""><img src="http://xjs.ca/images/github.png" /></a>
+			
 		</div>
     </div>
 
@@ -84,32 +92,23 @@
   <!-- Javascript at the bottom for fast page loading -->
 
   <!-- Grab Google CDN's jQuery. fall back to local if necessary -->
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.js"></script>
   <script>!window.jQuery && document.write(unescape('%3Cscript src="js/libs/jquery-1.4.4.js"%3E%3C/script%3E'))</script>
-
+  <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1/jquery-ui.min.js"></script>
   <!-- scripts concatenated and minified via ant build script-->
   <script src="http://xjs.ca/js/plugins.js"></script>
   <script src="http://xjs.ca/js/script.js"></script>
   <!-- end concatenated and minified scripts-->
 
 
-  <!--[if lt IE 7 ]>
-    <script>
-      // More information on tackling transparent PNGs for IE goo.gl/mZiyb
-      //fix any <img> or .png_bg background-images
-      $.getScript("js/libs/dd_belatedpng.js",function(){ DD_belatedPNG.fix('img, .png_bg'); });
-    </script>
-  <![endif]-->
-
-  <!-- yui profiler and profileviewer - remove for production -->
-  <script src="http://xjs.ca/js/profiling/yahoo-profiling.min.js"></script>
-  <script src="http://xjs.ca/js/profiling/config.js"></script>
-  <!-- end profiling code -->
 
 
   <!-- asynchronous google analytics: mathiasbynens.be/notes/async-analytics-snippet
        change the UA-XXXXX-X to be your site's ID -->
   <script>
+  $(function(){
+  	$("button").button({buttonheight:48});
+  });
    var _gaq = [['_setAccount', 'UA-212713-19'], ['_trackPageview']];
    (function(d, t) {
     var g = d.createElement(t),
