@@ -33,6 +33,7 @@
   <!-- CSS : implied media="all" -->
   <link rel="stylesheet" href="http://xjs.ca/css/blueprint/screen.css?v=2">
   <link rel="stylesheet" href="http://xjs.ca/css/style.css?v=2">
+  <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/ui-lightness/jquery-ui.css" />
 
   <!-- Uncomment if you are specifically targeting less enabled mobile browsers
   <link rel="stylesheet" media="handheld" href="css/handheld.css?v=2">  -->
@@ -73,13 +74,23 @@
 			<h2>jquery-ui-veneer-widget</h2>
 			</div>
 			<div class="span-12 last">
-				<div class="prepend-4 span-2"><a href="http://jquery.com" title=""><img src="http://xjs.ca/images/jquery.png" alt="" width="48px" height="48px"" /></a></div>
-				<div class="span-2"><a href="http://jqueryui.com" title=""><img src="http://xjs.ca/images/jqueryui.png" alt="" width="48px" height="48px"" /></a></div></div>
+				<div class="prepend-4 span-2">
+					<a href="https://github.com/StevenBlack/jquery-ui-veneer-widget" title=""><img src="http://xjs.ca/images/github.png" /></a>
+				</div>
+				<div class="span-2">
+					<a href="http://jquery.com" title=""><img src="http://xjs.ca/images/jquery.png" alt="" width="48px" height="48px"" /></a>
+				</div>
+				<div class="span-2">
+					<a href="http://jqueryui.com" title=""><img src="http://xjs.ca/images/jqueryui.png" alt="" width="48px" height="48px"" /></a>
+				</div>
 			</div>
 			<p>Veneer is a jquery-ui widget that takes vanilla HTML and allows you to inject jquery-ui goodness while keeping your content free of tag-soup.  Veneer can use header tags to infer hierarchichy without any pre-existing div tags.</p>
-			<button class="span-3">Demo</button><button class="span-3">Download</button>
-			<a href="https://github.com/StevenBlack/jquery-ui-veneer-widget" title=""><img src="http://xjs.ca/images/github.png" /></a>
-			
+			<div class="prepend-3 span-3">
+				<a class="button">Demo</a>
+			</div>
+			<div class="span-3">
+				<a class="button">Download</a>
+			</div>
 		</div>
     </div>
 
@@ -107,7 +118,7 @@
        change the UA-XXXXX-X to be your site's ID -->
   <script>
   $(function(){
-  	$("button").button({buttonheight:48});
+  	$(".button").button();
   });
    var _gaq = [['_setAccount', 'UA-212713-19'], ['_trackPageview']];
    (function(d, t) {
