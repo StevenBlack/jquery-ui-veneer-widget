@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>jQuery Veneer Widget Demo</title>
+<link rel="stylesheet" type="text/css" href="../src/jquery.veneer.css" />
+<link rel="stylesheet" type="text/css" href="assets/style.css" />
+<link rel="stylesheet" type="text/css" href="assets/prettify.css" />
+
+<link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/ui-lightness/jquery-ui.css" />
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1/jquery-ui.min.js"></script>
+<script type="text/javascript" src="assets/jquery.ui-themeswitcher.js"></script>
+<script type="text/javascript" src="assets/prettify.js"></script>
+<script type="text/javascript" src="../src/jquery.ui.veneer.js"></script>
+<script type="text/javascript">
+function setupVeneers( codeBox ) {
+	// evaluate the code in the textarea
+	eval( codeBox.val() );
+}
+</script>
+</head>
+<body id="test" onload="prettyPrint();">
+
+<h2 class="demoTitle">Veneer Collapsible Headings</h2>
+<p class="notice">This demo shows how some containers can be made collapsible, and collapsed.</p>
+
+<div class="veneerControls ui-helper-clearfix clear">
+	<div class="ui-helper-clearfix">
+		<div id="switcher" style="margin-right:1em; float:left;"></div>
+		<div id="output"></div>
+	</div>
+	<strong>Veneer code:</strong>
+	<textarea class="veneerCode ui-helper-clearfix">
+$("h1").veneer( {collapsible: true } );
+$("h2").veneer( {collapsible: true, collapsed: true } );
+	</textarea>				
+	<div id="output" class="clear"></div>
+</div>
+
+<button class="veneerToggle">Toggle veneers</button>
+
+
+<div id="target" class="veneer" title="This is from the title attribute"></div>
+
+<script type="text/javascript">
+$(function() {
+	$("button").button();
+	$("#switcher").themeswitcher({ })
+	// Purely for ease of demo maintenance, load the common demo elements to be veneered.
+	// Upon completion, as a point of information, display the initial number of DOM elements by calling numElements()
+	$("#target").load("textToVeneer.htm", numElements );
+	
+	// Set-up the Toggle
+	$(".veneerToggle").each( function() {
+		var tog= $( this ), codeBox = $(".veneerCode");
+		tog.toggle( 
+			function () { 
+				setupVeneers( codeBox ); 
+				numElements();			
+			},
+			function() { 
+				$(":ui-veneer", $(this).closest("body") ).veneer( "destroy" );
+				numElements();				
+			}
+		);
+	});	
+});
+
+// Display the number of elements on the page -- looking for "leaks" caused 
+// by items missed in the destroy() method.
+function numElements() {
+	// display the aggregate number of elements on the page.
+	var op = $("#output");
+	if ( ! op.children().length ) {
+		$("<p><strong>Number of DOM Elements: </strong> starting with: </p>").appendTo( op );
+	}
+	op.find("p").append( $("*").length+ " elements / ");
+}
+
+</script>
+</body>
+</html>

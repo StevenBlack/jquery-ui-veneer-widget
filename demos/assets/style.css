@@ -19,7 +19,7 @@ h1, h2, p { margin:10px 0 }
 .bottom { margin-bottom: 0;}
 .top { margin-top: 0;}
 h1, h2, h3, h4, h5, h6 { color: inherit;}
-.veneerCode { width:600px; height:6em; margin: 1em 1em 1em 0; padding:5px; color:maroon;font-size:18px;}
+.veneerCode { width:660px; height:5em; margin: 1em 1em 1em 0; padding:5px; color:maroon;font-size:16px;}
 .clear {clear:both;}
 .demoTitle {width:50%;}
 
