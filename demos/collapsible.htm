@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>jQuery Veneer Widget Demo</title>
-<link rel="stylesheet" type="text/css" href="../src/jquery.veneer.css" />
+<link rel="stylesheet" type="text/css" href="../jquery.ui.veneer.css" />
 <link rel="stylesheet" type="text/css" href="assets/style.css" />
 <link rel="stylesheet" type="text/css" href="assets/prettify.css" />
 
@@ -32,8 +32,8 @@ function setupVeneers( codeBox ) {
 	</div>
 	<strong>Veneer code:</strong>
 	<textarea class="veneerCode ui-helper-clearfix">
-$("h1").veneer( {collapsible: true } );
-$("h2").veneer( {collapsible: true, collapsed: true } );
+$( "#target h1" ).veneer( { collapsible: true } );
+$( "#target h2" ).veneer( { collapsible: true, collapsed: true } );
 	</textarea>				
 	<div id="output" class="clear"></div>
 </div>
